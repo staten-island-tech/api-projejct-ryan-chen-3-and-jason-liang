@@ -1,6 +1,7 @@
+from flask import Flask, render_template, request
 import os
-
-from flask import Flask
+import requests
+import json
 
 
 def create_app(test_config=None):
@@ -24,9 +25,21 @@ def create_app(test_config=None):
     except OSError:
         pass
 
-    # a simple page that says hello
-    @app.route('/')
-    def hello():
-        return 'Hello, World!'
 
+    
+    """ @app.route("/")
+    def index():
+        return render_template('index.html') """
+
+    @app.route('/', methods=('GET', 'POST'))
+    def getPost():
+        if request.method == 'POST':
+            title = request.form['title']
+            body = request.form['body']
+            data = requests.get(f"https://pokeapi.co/api/v2/pokemon/{title}").json()
+
+            print(request.form)
+            return render_template('test.html',data=data)
+        else:
+            return render_template('index.html')
     return app
