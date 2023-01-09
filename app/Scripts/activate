@@ -38,7 +38,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="F:\Python Microsoft\flask-forms-demo\app"
+VIRTUAL_ENV="C:\Users\Jason.Liang\Documents\GitHub\ghfgo\api-projejct-ryan-chen-3-and-jason-liang\app"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

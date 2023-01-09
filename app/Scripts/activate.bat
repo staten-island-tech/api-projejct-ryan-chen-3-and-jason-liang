@@ -8,7 +8,7 @@ if defined _OLD_CODEPAGE (
     "%SystemRoot%\System32\chcp.com" 65001 > nul
 )
 
-set VIRTUAL_ENV=F:\Python Microsoft\flask-forms-demo\app
+set VIRTUAL_ENV=C:\Users\Jason.Liang\Documents\GitHub\ghfgo\api-projejct-ryan-chen-3-and-jason-liang\app
 
 if not defined PROMPT set PROMPT=$P$G
 
