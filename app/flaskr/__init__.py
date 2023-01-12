@@ -31,7 +31,7 @@ def create_app(test_config=None):
     def index():
         return render_template('index.html') """
 
-    @app.route('/', methods=('GET', 'POST'))
+    @app.route('/coin/pokemon>', methods=('GET', 'POST'))
     def getPost():
         if request.method == 'POST':
             title = request.form['title']
@@ -42,4 +42,3 @@ def create_app(test_config=None):
             return render_template('test.html',data=data)
         else:
             return render_template('index.html')
-    return app
