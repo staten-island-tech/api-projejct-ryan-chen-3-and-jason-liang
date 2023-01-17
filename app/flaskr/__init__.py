@@ -1,7 +1,7 @@
 import os
 
-from flask import Flask
-
+from flask import Flask, render_template
+from requests import request
 
 def create_app(test_config=None):
     # create and configure the app
@@ -24,9 +24,15 @@ def create_app(test_config=None):
     except OSError:
         pass
 
-    # a simple page that says hello
     @app.route('/')
     def hello():
-        return 'Hello, World!'
+        return render_template('index.html')
+
+    @app.route('/pokemon/<pokemon>')
+    def getpokemon(pokemon):
+        for e in pokemon["__init__"]:
+            if pokemon in e["name"]:
+                return render_template("interest.html", pokemon=pokemon)
+        return "try again!"
 
     return app
