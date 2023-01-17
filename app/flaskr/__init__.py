@@ -1,7 +1,7 @@
+from flask import Flask, render_template, request
 import os
-
-from flask import Flask, render_template
-from requests import request
+import requests
+import json
 
 def create_app(test_config=None):
     # create and configure the app
@@ -28,11 +28,14 @@ def create_app(test_config=None):
     def hello():
         return render_template('index.html')
 
-    @app.route('/pokemon/<pokemon>')
-    def getpokemon(pokemon):
-        for e in pokemon["__init__"]:
-            if pokemon in e["name"]:
-                return render_template("interest.html", pokemon=pokemon)
-        return "try again!"
-
+    @app.route('/', methods=('GET', 'POST'))
+    def getPost():
+        if request.method == 'POST':
+            title = request.form['title']
+            body = request.form['bodies']
+            data = requests.get(f"https://pokeapi.co/api/v2/pokemon/{title}").json()
+            print(request.headers)
+            return render_template('test.html',data=data)
+        else:
+            return render_template('index.html')
     return app
