@@ -3,6 +3,7 @@ import os
 import requests
 import json
 
+
 def create_app(test_config=None):
     # create and configure the app
     app = Flask(__name__, instance_relative_config=True)
@@ -24,9 +25,11 @@ def create_app(test_config=None):
     except OSError:
         pass
 
-    @app.route('/')
-    def hello():
-        return render_template('index.html')
+
+    
+    """ @app.route("/")
+    def index():
+        return render_template('index.html') """
 
     @app.route('/', methods=('GET', 'POST'))
     def getPost():

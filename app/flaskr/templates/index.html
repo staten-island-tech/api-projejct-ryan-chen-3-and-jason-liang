@@ -18,16 +18,13 @@
   </head>
   <body> <FONT COLOR="WHITE"
     <form method="post">
+      <div><font size=20><center>find your pokemon!</center></font></div>
       <label for="title">Search Pokemon</label>
       <input
         name="title"
         id="title"
         value="{{ request.form['title'] }}"
         required
-      />
-      <label for="body">Body</label>
-      <textarea name="body" id="body">{{ request.form['body'] }}</textarea>
-      <input type="submit" value="Save" />
     </form>
   </body>
 </html>
