@@ -1,0 +1,39 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../static/css/stylesheet.css" />
+  </head>
+  <body>
+    <a href="/">
+      <h1>HOME</h1>
+    </a>
+    <h1>{{data.name}}</h1>
+    {% for data in data.types %}
+    <h2>{{data.type.name}}</h2>
+    {% endfor %}
+    <img src="{{data.sprites.front_default}}">
+    <img src="{{data.sprites.back_default}}">
+    <img src="{{data.sprites.front_shiny}}">
+    <img src="{{data.sprites.back_shiny}}">
+    <h2>Abilities</h2>
+    {% for data in data.abilities %}
+    <h3>{{data.ability.name}}</h3>
+    {% endfor %}
+    <h2>Moves</h2>
+   
+    {% for data in data.moves %}
+    <h3>{{data.move.name}}</h3>
+   
+    {% for data2 in data.version_group_details %}
+    <h4>{{data2.version_group.name}}</h4>
+    <h4>{{data2.move_learn_method.name}}</h4>
+    <h4>{{data2.level_learned_at}}</h4>
+    {% endfor %}
+   
+    {% endfor %}
+    </div>
+  </body>
+</html>
